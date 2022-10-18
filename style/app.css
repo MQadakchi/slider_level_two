@@ -1,0 +1,125 @@
+:root {
+  --primaryColor: #dabfff;
+  --secondaryColor: #4f518c;
+  --textColor: #907ad6;
+  --lightColor: #7fdeff;
+  --darkColor: #2c2a4a;
+}
+
+@font-face {
+  font-family: "vazir";
+  src: url("/fonts/vazir.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: vazir;
+  font-weight: normal;
+  direction: rtl;
+  text-align: right;
+}
+
+body {
+  margin: 0;
+  font-family: inherit;
+}
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--darkColor);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--lightColor);
+  border-radius: 25px;
+  box-shadow: 0 0 5px var(--lightColor);
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--secondaryColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper {
+  width: 1200px;
+  height: 768px;
+  border: 5px solid var(--textColor);
+  border-radius: 15px;
+  box-shadow: 0 0 10px var(--textColor);
+  overflow: hidden;
+  position: relative;
+}
+.slides {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: none;
+}
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slides h2 {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 125px;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #fff;
+}
+.slides.active {
+  display: flex;
+  animation: zoom 0.5s linear;
+}
+@keyframes zoom {
+  0% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 90%;
+  right: 5%;
+  left: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.next-btn,
+.prev-btn {
+  color: var(--lightColor);
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.next-btn:hover,
+.prev-btn:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: var(--secondaryColor);
+}
